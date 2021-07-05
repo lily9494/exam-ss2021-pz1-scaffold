@@ -1,8 +1,7 @@
-FROM node:12.16.0-buster
+FROM node:14.17.1-buster
 
 WORKDIR /app
 
 COPY package*.json ./
 
 COPY . .
-
