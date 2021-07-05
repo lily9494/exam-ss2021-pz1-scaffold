@@ -17,13 +17,14 @@ app.use(cors());
 app.use(express.json());
 
 app.set('view engine', 'html');
+app.set('view engine', 'ejs')
 
 // Static folder
 app.use(express.static(__dirname + '/views/'));
 
 // Defining route middleware
 app.use('/api', require('./routes/api'));
-
+app.use('/users', require('./routes/users'));
 if (process.env.NODE_ENV !== 'test') {
 // Listening to port
     app.listen(port);

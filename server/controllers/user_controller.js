@@ -68,9 +68,23 @@ const deleteData = (req, res) => {
     });
 };
 
+const index = (req, res, next) => {
+        User.find()
+            .sort({ 'name.last': 'asc' })
+            .then(users => {
+              res.locals.users = users
+              res.render('users/index')
+            })
+            .catch(error => {
+              console.log(`Error fetching users: ${error.message}`)
+              next(error)
+            })
+      }
+
 module.exports = {
   createData,
   readData,
   updateData,
   deleteData,
+  index
 };
