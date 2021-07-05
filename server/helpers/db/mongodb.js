@@ -15,8 +15,8 @@ const init = () => {
       process.exit(1);
     });
   mongoose.connection.on('open', () => {
-      console.log('process.env.MONGO_URL: '+process.env.MONGO_URL)
-      console.log('process.env.DB_URL: '+process.env.DB_URL)
+      // console.log('process.env.MONGO_URL: '+process.env.MONGO_URL)
+      // console.log('process.env.DB_URL: '+process.env.DB_URL)
       console.log('connected to database on '+ dburl);
   });
 };

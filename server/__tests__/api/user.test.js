@@ -11,7 +11,7 @@ describe('API: user list', () => {
 
     it('show all users in db', function (done) {
         request(app)
-            .get('/api')
+            .get('/api/users')
             .then((response) => {
                 const body = response.text
                 for (const user of userData) {
@@ -26,7 +26,7 @@ describe('API: user list', () => {
     describe('POST /users', function() {
         it('responds with json', function(done) {
             request(app)
-                .post('/api')
+                .post('/api/users')
                 .send({name: 'kim', age: '42'})
                 .set('Accept', 'application/json')
                // .expect('Content-Type', /json/)
