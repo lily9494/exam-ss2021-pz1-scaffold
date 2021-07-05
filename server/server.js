@@ -24,8 +24,9 @@ app.use(express.static(__dirname + '/views/'));
 // Defining route middleware
 app.use('/api', require('./routes/api'));
 
+if (process.env.NODE_ENV !== 'test') {
 // Listening to port
-app.listen(port);
-console.log(`Listening On http://localhost:${port}/api`);
-
+    app.listen(port);
+    console.log(`Listening On http://localhost:${port}/api`);
+}
 module.exports = app;
