@@ -23,5 +23,20 @@ describe('API: user list', () => {
                 done(err)
             })
     })
+    describe('POST /users', function() {
+        it('responds with json', function(done) {
+            request(app)
+                .post('/api')
+                .send({name: 'kim', age: '42'})
+                .set('Accept', 'application/json')
+               // .expect('Content-Type', /json/)
+                .expect(201) // Created
+                .end(function(err, res) {
+                    if (err) return done(err);
+                    expect(res.body.name).toEqual('kim')
+                    return done();
+                });
+        });
+    });
 
 })
