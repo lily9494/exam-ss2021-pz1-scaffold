@@ -9,6 +9,8 @@ const init = () => {
     .connect(dburl, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
+      useCreateIndex: true
+
     })
     .catch((err) => {
       console.error('error: ' + err.stack);
